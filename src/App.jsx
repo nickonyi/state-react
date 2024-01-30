@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import { sculptureList } from "./data"
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export default function Gallery(){
+  const [index,setIndex] = useState(0);
+  const [showMore,setShowMore] = useState(false);
+
+  function handleClick(){
+    setIndex(index+1);
+  }
+
+  function handleMoreClick(){
+    setShowMore(!showMore);
+  }
+
+  let sculpture = sculptureList[index];
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <button onClick={handleClick}>Next</button>
+    <h2>
+      <i>{sculpture.name}</i>
+      by {sculpture.artist}
+    </h2>
+    <h3>
+      {index + 1} of {sculptureList.length}
+    </h3>
+    <button onClick={handleMoreClick}>
+      {
+        showMore?'show ':'hide '
+      } details
+    </button>
+    {showMore&& <p>{sculpture.description}</p>}
+    <img src={sculpture.url} alt={sculpture.alt} />
+    
     </>
   )
 }
-
-export default App
