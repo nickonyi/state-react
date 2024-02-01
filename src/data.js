@@ -14,13 +14,13 @@ export const sculptureList = [{
     name: 'Eternal Presence',
     artist: 'John Woodrow Wilson',
     description: 'Wilson was known for his preoccupation with equality, social justice, as well as the essential and spiritual qualities of humankind. This massive (7ft. or 2,13m) bronze represents what he described as "a symbolic Black presence infused with a sense of universal humanity."',
-    url: 'https://i.imgur.com/aTtVpES.jpg',
+    url: '../public/cars/car-3.webp',
     alt: 'The sculpture depicting a human head seems ever-present and solemn. It radiates calm and serenity.'
 }, {
     name: 'Moai',
     artist: 'Unknown Artist',
     description: 'Located on the Easter Island, there are 1,000 moai, or extant monumental statues, created by the early Rapa Nui people, which some believe represented deified ancestors.',
-    url: 'https://i.imgur.com/RCwLEoQm.jpg',
+    url: '../public/cars/car-4.jpg',
     alt: 'Three monumental stone busts with the heads that are disproportionately large with somber faces.'
 }, {
     name: 'Blue Nana',

@@ -7,8 +7,19 @@ export default function Gallery(){
   const [index,setIndex] = useState(0);
   const [showMore,setShowMore] = useState(false);
 
-  function handleClick(){
-    setIndex(index+1);
+  const hasPrev = index > 0;
+  const hasNext = index < sculptureList.length -1;
+
+  function handleClickPrev(){
+      if (hasPrev){
+        setIndex(index - 1);
+      }
+  }
+
+  function handleClickNext(){
+    if(hasNext){
+      setIndex(index + 1);
+    }
   }
 
   function handleMoreClick(){
@@ -19,7 +30,8 @@ export default function Gallery(){
 
   return (
     <>
-    <button onClick={handleClick}>Next</button>
+    <button onClick={handleClickPrev} disabled={!hasPrev}>Prev</button>
+    <button onClick={handleClickNext} disabled={!hasNext}>Next</button>
     <h2>
       <i>{sculpture.name}</i>
       by {sculpture.artist}
@@ -33,7 +45,7 @@ export default function Gallery(){
       } details
     </button>
     {showMore&& <p>{sculpture.description}</p>}
-    <img src={sculpture.url} alt={sculpture.alt} />
+    <img className='img' src={sculpture.url} alt={sculpture.alt} />
     
     </>
   )
